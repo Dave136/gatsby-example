@@ -30,14 +30,16 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: 'http://localhost:1337',
+        apiURL: process.env.DEPLOY_URL
+          ? "https://still-woodland-82662.herokuapp.com"
+          : 'http://localhost:1337',
         contentTypes: [ // List of the Content Types you want to be able to request from Gatsby.
           'article',
           'user'
         ],
         queryLimit: 1000,
-      }
-    }
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
